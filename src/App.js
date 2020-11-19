@@ -1,15 +1,14 @@
 import React, { useState } from "react";
+import { tada } from "react-animations";
+import styled from "@emotion/styled";
+import { keyframes } from "@emotion/react";
+
 import "./App.css";
 import Pizza from "./pizza.png";
 import Burger from "./burger.png";
 import Github from "./github.png";
 
-import { tada, fadeIn } from "react-animations";
-import styled from "@emotion/styled";
-import { keyframes } from "@emotion/react";
-
 const bounceAnimation = keyframes`${tada}`;
-const fadeAnimation = keyframes`${fadeIn}`;
 
 const Button = styled.button`
   padding: 16px;
@@ -34,8 +33,6 @@ const Food = styled.div`
 function App() {
   const [randomNum, setRandomNum] = useState(0);
 
-  const [disable, setDisabled] = useState(false);
-
   const handleRandomNum = () => {
     setRandomNum(Math.floor(Math.random() * 2) + 1);
   };
@@ -44,14 +41,14 @@ function App() {
     setRandomNum(0);
   };
 
-  const handleSetDisabled = () => {
-    setDisabled(!disable);
-  };
   return (
     <div className="App">
       <header className="App-header">
         <h1>Pizza or Burger?</h1>
-        <p>Hungry? Cant decide? Let us help you.</p>
+        <p style={{ maxWidth: "500px" }}>
+          Hungry? Can't decide?
+          <br /> Let us help.
+        </p>
         <div>
           {randomNum === 0 ? (
             <Button onClick={handleRandomNum}>Give me food!</Button>
@@ -87,7 +84,7 @@ function App() {
           rel="noopener noreferrer"
           style={{ textDecoration: "none", color: "#808B96" }}
         >
-          <img src={Github} style={{ width: "100%" }} />
+          <img src={Github} alt="GitHub" style={{ width: "100%" }} />
         </a>
       </div>
     </div>
