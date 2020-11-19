@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import "./App.css";
 import Pizza from "./pizza.png";
 import Burger from "./burger.png";
+import Github from "./github.png";
 
-import { tada } from "react-animations";
+import { tada, fadeIn } from "react-animations";
 import styled from "@emotion/styled";
 import { keyframes } from "@emotion/react";
 
 const bounceAnimation = keyframes`${tada}`;
+const fadeAnimation = keyframes`${fadeIn}`;
 
 const Button = styled.button`
   padding: 16px;
@@ -70,6 +72,24 @@ function App() {
           )}
         </p>
       </header>
+      <div
+        style={{
+          position: "fixed",
+          bottom: "0px",
+          right: "0px",
+          margin: "10px",
+          width: "25px",
+        }}
+      >
+        <a
+          href="https://github.com/dnikravesh"
+          target="_blank"
+          rel="noopener noreferrer"
+          style={{ textDecoration: "none", color: "#808B96" }}
+        >
+          <img src={Github} style={{ width: "100%" }} />
+        </a>
+      </div>
     </div>
   );
 }
